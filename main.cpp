@@ -200,27 +200,27 @@ int main(int argc,char** argv)
     cout<<"\n";
     cout<<"for - \n";
     for(int i=0;i<=mp_x;i++){
-     cout<<mp_one[i] << " " << s_one[i] <<"\n";
+     cout<<std::setprecision(preci) << mp_one[i] << " " <<std::setprecision(preci) << s_one[i] <<"\n";
     }
     cout<<"\n";
     cout<<"for + \n";
     for(int i=0;i<=mp_x;i++){
-     cout<<mp_two[i] << " " << s_two[i] <<"\n";
+     cout<<std::setprecision(preci) <<mp_two[i] << " " <<std::setprecision(preci) << s_two[i] <<"\n";
     }
     cout<<"\n";
     cout<<"for * \n";
     for(int i=0;i<=mp_x;i++){
-     cout<<mp_three[i] << " " << s_three[i] <<"\n";
+     cout<<std::setprecision(preci) <<mp_three[i] << " " <<std::setprecision(preci) << s_three[i] <<"\n";
     }
     cout<<"\n";
     cout<<"for / \n";
     for(int i=0;i<=mp_x;i++){
-     cout<<mp_four[i] << " " << s_four[i] <<"\n";
+     cout<<std::setprecision(preci) <<mp_four[i] << " " <<std::setprecision(preci) << s_four[i] <<"\n";
     }
     cout<<"\n";
     cout<<"for /\ \n";
     for(int i=0;i<=mp_x;i++){
-     cout<<mp_five[i] << " " << s_five[i] <<"\n";
+     cout<<std::setprecision(preci) <<mp_five[i] << " " <<std::setprecision(preci) << s_five[i] <<"\n";
     }
     return 0;
 }
