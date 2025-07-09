@@ -3,7 +3,6 @@
 #include <iomanip>
 #include "math.h"
 using namespace std;
-
     string sti;
     long double xnmb;
     long double xl;
@@ -14,8 +13,15 @@ using namespace std;
     xgen *xg= new xgen();
     int x_one;
     int y_one;
-
+    int mp_one[1000];
+    int mp_two[1000];
+    int mp_three[1000];
+    int mp_four[1000];
+    int mp_five[1000];
+    int mp_x=0;
+    int loggz=0;
 void main_model(int praxi){
+    mp_x=0;
     for(int i=0;i<=xg->inh-1;i++){
        if(praxi==1){
         if(xnmb>=xg->internal_holder[i]){xl=xnmb-xg->internal_holder[i];}
@@ -30,8 +36,13 @@ void main_model(int praxi){
         if(xnmb<xg->internal_holder[i]){xl=xg->internal_holder[i]*xnmb;}
        }
        if(praxi==4){
-        if(xnmb>=xg->internal_holder[i]){xl=xnmb/xg->internal_holder[i];}
-        if(xnmb<xg->internal_holder[i]){xl=xg->internal_holder[i]/xnmb;}
+        //if(xnmb>=xg->internal_holder[i]){
+        xl=xnmb/xg->internal_holder[i];
+        //}
+        //if(xnmb<xg->internal_holder[i]){xl=xg->internal_holder[i]/xnmb;}
+       }
+       if(praxi==5){
+         xl=xg->internal_holder[i]/xnmb;
        }
        if(xl!=0){
        lxl.clear();
@@ -48,12 +59,24 @@ void main_model(int praxi){
        }
        }
        if(xl==0){lxl.clear();lxi=0;}
+       if(loggz==1){
        cout<<i << " " <<std::setprecision(preci) << xg->internal_holder[i] <<" ";
-       cout<<" ---> da rst is " <<std::setprecision(preci) << xl <<" " <<std::setprecision(preci)<< lxi <<"\n";
+       cout<<" ---> da rst is " <<std::setprecision(preci) << xl <<" " <<std::setprecision(preci)<< lxi <<"\n";}
+       if(praxi==1){mp_one[mp_x]=lxi; mp_x+=1;}
+       if(praxi==2){mp_two[mp_x]=lxi; mp_x+=1;}
+       if(praxi==3){mp_three[mp_x]=lxi; mp_x+=1;}
+       if(praxi==4){mp_four[mp_x]=lxi; mp_x+=1;}
+       if(praxi==5){mp_five[mp_x]=lxi; mp_x+=1;}
     }
 }
-
+    int s_one[1000];
+    int s_two[1000];
+    int s_three[1000];
+    int s_four[1000];
+    int s_five[1000];
+    int s_x=0;
 void secondary_model(int praxi){
+    s_x=0;
     for(int i=0;i<=xg->inh-1;i++){
       if(praxi==1){
         if(xnmb>=xg->in_h[i]){xl=xnmb-xg->in_h[i];}
@@ -68,8 +91,13 @@ void secondary_model(int praxi){
         if(xnmb<xg->in_h[i]){xl=xg->in_h[i]*xnmb;}
        }
        if(praxi==4){
-        if(xnmb>=xg->in_h[i]){xl=xnmb/xg->in_h[i];}
-        if(xnmb<xg->in_h[i]){xl=xg->in_h[i]/xnmb;}
+       // if(xnmb>=xg->in_h[i]){
+        xl=xnmb/xg->in_h[i];
+        //}
+        //if(xnmb<xg->in_h[i]){xl=xg->in_h[i]/xnmb;}
+       }
+       if(praxi==5){
+         xl=xg->in_h[i]/xnmb;
        }
        if(xl!=0){
        lxl.clear();
@@ -86,8 +114,15 @@ void secondary_model(int praxi){
        }
        }
        if(xl==0){lxl.clear();lxi=0;}
-       cout<<i << " " <<std::setprecision(preci) << xg->in_h[i] <<" ";
-       cout<<" ---> da rst is " <<std::setprecision(preci) << xl <<" " <<std::setprecision(preci)<< lxi <<"\n";
+       if(loggz==1){
+          cout<<i << " " <<std::setprecision(preci) << xg->in_h[i] <<" ";
+          cout<<" ---> da rst is " <<std::setprecision(preci) << xl <<" " <<std::setprecision(preci)<< lxi <<"\n";
+          }
+       if(praxi==1){s_one[s_x]=lxi; s_x+=1;}
+       if(praxi==2){s_two[s_x]=lxi; s_x+=1;}
+       if(praxi==3){s_three[s_x]=lxi; s_x+=1;}
+       if(praxi==4){s_four[s_x]=lxi; s_x+=1;}
+       if(praxi==5){s_five[s_x]=lxi; s_x+=1;}
     }
 }
 
@@ -99,6 +134,7 @@ int main(int argc,char** argv)
     cout<<"for the model enter the first digit \n";
     cout<<"for the model enter the second digit \n";
     cout<<"for the second model enter the stable is the first always \n";
+    cout<<"enter 1 for log show or 0 for not \n";
     xnmb=stoll(argv[1]);
     sti+=to_string(xnmb);
     prm=stoi(argv[2]);
@@ -106,39 +142,85 @@ int main(int argc,char** argv)
     x_one=stoi(argv[4]);
     xg->ar[0]=x_one;
     y_one=stoi(argv[5]);
+    loggz=stoi(argv[6]);
     xg->ar[1]=y_one;
     xg->size_with(sti);
     lxi=xg->summer(sti);
     cout<<"@ numbers is " <<std::setprecision(preci)<< xnmb <<" with cd of " << lxi <<"\n";
     xg->create_nines_from(prm);
     cout<<"\n";
-    cout<<xg->ar[0] << " " << xg->ar[1] << "model \n";
-    cout<<"-\n";
+    cout<<xg->ar[0] << " " << xg->ar[1] << " model \n";
+    if(loggz==1){cout<<"-\n";}
     main_model(1);
-    cout<<"\n";
-    cout<<"+\n";
+    if(loggz==1){cout<<"\n";
+       cout<<"+\n";
+    }
     main_model(2);
+    if(loggz==1){
     cout<<"\n";
     cout<<"*\n";
+    }
     main_model(3);
+    if(loggz==1){
     cout<<"\n";
     cout<<"/\n";
+    }
     main_model(4);
-    cout<<"\n";
-    cout<<xg->ar[0] << " " << xg->ar[0] << "model \n";
+    if(loggz==1){cout<<"\n";}
+    main_model(5);
+    if(loggz==1){cout<<"\n";}
+    cout<<xg->ar[0] << " " << xg->ar[0] << " model \n";
     xg->all_nines_from(prm);
+    if(loggz==1){
     cout<<"\n";
     cout<<"-\n";
+    }
     secondary_model(1);
+    if(loggz==1){
     cout<<"\n";
     cout<<"+\n";
+    }
     secondary_model(2);
+    if(loggz==1){
     cout<<"\n";
     cout<<"*\n";
+    }
     secondary_model(3);
+    if(loggz==1){
     cout<<"\n";
     cout<<"/\n";
+    }
     secondary_model(4);
+    if(loggz==1){
     cout<<"\n";
+    }
+    secondary_model(5);
+    cout<<"\n";
+    cout<<"for model vs model @ the same action \n";
+    cout<<"\n";
+    cout<<"for - \n";
+    for(int i=0;i<=mp_x;i++){
+     cout<<mp_one[i] << " " << s_one[i] <<"\n";
+    }
+    cout<<"\n";
+    cout<<"for + \n";
+    for(int i=0;i<=mp_x;i++){
+     cout<<mp_two[i] << " " << s_two[i] <<"\n";
+    }
+    cout<<"\n";
+    cout<<"for * \n";
+    for(int i=0;i<=mp_x;i++){
+     cout<<mp_three[i] << " " << s_three[i] <<"\n";
+    }
+    cout<<"\n";
+    cout<<"for / \n";
+    for(int i=0;i<=mp_x;i++){
+     cout<<mp_four[i] << " " << s_four[i] <<"\n";
+    }
+    cout<<"\n";
+    cout<<"for /\ \n";
+    for(int i=0;i<=mp_x;i++){
+     cout<<mp_five[i] << " " << s_five[i] <<"\n";
+    }
     return 0;
 }
