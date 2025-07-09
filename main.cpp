@@ -21,6 +21,15 @@ int main(int argc,char** argv)
     cin>>prm;
     cout<<"enter precision \n";
     cin>>preci;
+    cout<<"for the model enter the first digit \n";
+    int x_one;
+    cin>>x_one;
+    xg->ar[0]=x_one;
+    cout<<"for the model enter the second digit \n";
+    int y_one;
+    cin>>y_one;
+    xg->ar[1]=y_one;
+    cout<<"for the second model enter the stable is the first always \n";
     xg->size_with(sti);
     lxi=xg->summer(sti);
     cout<<"@ numbers is " <<std::setprecision(preci)<< xnmb <<" with cd of " << lxi <<"\n";
@@ -29,7 +38,7 @@ int main(int argc,char** argv)
    //     cout<<i << " " <<std::setprecision(preci) << xg->internal_holder[i] <<"\n";
    // }
     cout<<"\n";
-    cout<<"90 model \n";
+    cout<<xg->ar[0] << " " << xg->ar[1] << "model \n";
 
     for(int i=0;i<=xg->inh-1;i++){
        if(xnmb>=xg->internal_holder[i]){xl=xnmb-xg->internal_holder[i];}
@@ -54,7 +63,8 @@ int main(int argc,char** argv)
     }
 
     cout<<"\n";
-    cout<<"All nines \n";
+    //cout<<"All nines \n";
+    cout<<xg->ar[0] << " " << xg->ar[0] << "model \n";
     xg->all_nines_from(prm);
 
     for(int i=0;i<=xg->inh-1;i++){
@@ -78,11 +88,6 @@ int main(int argc,char** argv)
        if(xl==0){lxl.clear();lxi=0;}
        cout<<i << " " <<std::setprecision(preci) << xg->in_h[i] <<" ";
        cout<<" ---> da rst is " <<std::setprecision(preci) << xl <<" " <<std::setprecision(preci)<< lxi <<"\n";
-
-
-
     }
-
-
     return 0;
 }
