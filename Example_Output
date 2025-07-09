@@ -1,0 +1,58 @@
+//Example 1 Output
+
+enter a number 
+2785
+enter more than the lenght of number for more 90[X] a number eg 2,3,4 or 0 
+0
+enter precision 
+12
+@ numbers is 2785 with cd of 22
+
+90 model 
+0 9  ---> da rst is 2776 4
+1 90  ---> da rst is 2695 4
+2 909  ---> da rst is 1876 4
+3 9090  ---> da rst is 6305 5
+4 90909  ---> da rst is 88124 5
+
+All nines 
+0 9  ---> da rst is 2776 4
+1 99  ---> da rst is 2686 4
+2 999  ---> da rst is 1786 4
+3 9999  ---> da rst is 7214 5
+4 99999  ---> da rst is 97214 5
+
+
+//Example 2
+
+enter a number 
+785213729
+enter more than the lenght of number for more 90[X] a number eg 2,3,4 or 0 
+0
+enter precision 
+20
+@ numbers is 785213729 with cd of 44
+
+90 model 
+0 9  ---> da rst is 785213720 8
+1 90  ---> da rst is 785213639 8
+2 909  ---> da rst is 785212820 8
+3 9090  ---> da rst is 785204639 8
+4 90909  ---> da rst is 785122820 8
+5 909090  ---> da rst is 784304639 8
+6 9090909  ---> da rst is 776122820 8
+7 90909090  ---> da rst is 694304639 8
+8 909090909  ---> da rst is 123877180 1
+9 9090909090  ---> da rst is 8305695361 1
+
+All nines 
+0 9  ---> da rst is 785213720 8
+1 99  ---> da rst is 785213630 8
+2 999  ---> da rst is 785212730 8
+3 9999  ---> da rst is 785203730 8
+4 99999  ---> da rst is 785113730 8
+5 999999  ---> da rst is 784213730 8
+6 9999999  ---> da rst is 775213730 8
+7 99999999  ---> da rst is 685213730 8
+8 999999999  ---> da rst is 214786270 1
+9 9999999999  ---> da rst is 9214786270 1
