@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1752068146 source:/home/acherontas/codeblock/weird_90X_arm64/xgen.cpp
+	"xgen.h"
+	"pthread.h"
+	<iostream>
+
+1752068162 /home/acherontas/codeblock/weird_90X_arm64/xgen.h
+	<string>
+
+1752060895 source:/home/acherontas/codeblock/weird_90X_arm64/main.cpp
+	<iostream>
+	"xgen.h"
+	<iomanip>
+	"math.h"
+
