@@ -4,8 +4,6 @@
 #include "math.h"
 using namespace std;
 
-int main(int argc,char** argv)
-{
     string sti;
     long double xnmb;
     long double xl;
@@ -14,31 +12,27 @@ int main(int argc,char** argv)
     int prm=0;
     int preci=0;
     xgen *xg= new xgen();
-    cout<<"enter a number \n";
-    cout<<"enter more than the lenght of number for more 90[X] a number eg 2,3,4 or 0 \n";
-    cout<<"enter precision \n";
-    cout<<"for the model enter the first digit \n";
-    cout<<"for the model enter the second digit \n";
-    cout<<"for the second model enter the stable is the first always \n";
-    xnmb=stoll(argv[1]);
-    sti+=to_string(xnmb);
-    prm=stoi(argv[2]);
-    preci=stoi(argv[3]);
     int x_one;
-    x_one=stoi(argv[4]);
-    xg->ar[0]=x_one;
     int y_one;
-    y_one=stoi(argv[5]);
-    xg->ar[1]=y_one;
-    xg->size_with(sti);
-    lxi=xg->summer(sti);
-    cout<<"@ numbers is " <<std::setprecision(preci)<< xnmb <<" with cd of " << lxi <<"\n";
-    xg->create_nines_from(prm);
-    cout<<"\n";
-    cout<<xg->ar[0] << " " << xg->ar[1] << "model \n";
+
+void main_model(int praxi){
     for(int i=0;i<=xg->inh-1;i++){
-       if(xnmb>=xg->internal_holder[i]){xl=xnmb-xg->internal_holder[i];}
-       if(xnmb<xg->internal_holder[i]){xl=xg->internal_holder[i]-xnmb;}
+       if(praxi==1){
+        if(xnmb>=xg->internal_holder[i]){xl=xnmb-xg->internal_holder[i];}
+        if(xnmb<xg->internal_holder[i]){xl=xg->internal_holder[i]-xnmb;}
+       }
+       if(praxi==2){
+        if(xnmb>=xg->internal_holder[i]){xl=xnmb+xg->internal_holder[i];}
+        if(xnmb<xg->internal_holder[i]){xl=xg->internal_holder[i]+xnmb;}
+       }
+       if(praxi==3){
+        if(xnmb>=xg->internal_holder[i]){xl=xnmb*xg->internal_holder[i];}
+        if(xnmb<xg->internal_holder[i]){xl=xg->internal_holder[i]*xnmb;}
+       }
+       if(praxi==4){
+        if(xnmb>=xg->internal_holder[i]){xl=xnmb/xg->internal_holder[i];}
+        if(xnmb<xg->internal_holder[i]){xl=xg->internal_holder[i]/xnmb;}
+       }
        if(xl!=0){
        lxl.clear();
        lxl+=to_string(xl);
@@ -57,12 +51,26 @@ int main(int argc,char** argv)
        cout<<i << " " <<std::setprecision(preci) << xg->internal_holder[i] <<" ";
        cout<<" ---> da rst is " <<std::setprecision(preci) << xl <<" " <<std::setprecision(preci)<< lxi <<"\n";
     }
-    cout<<"\n";
-    cout<<xg->ar[0] << " " << xg->ar[0] << "model \n";
-    xg->all_nines_from(prm);
+}
+
+void secondary_model(int praxi){
     for(int i=0;i<=xg->inh-1;i++){
-       if(xnmb>=xg->in_h[i]){xl=xnmb-xg->in_h[i];}
-       if(xnmb<xg->in_h[i]){xl=xg->in_h[i]-xnmb;}
+      if(praxi==1){
+        if(xnmb>=xg->in_h[i]){xl=xnmb-xg->in_h[i];}
+        if(xnmb<xg->in_h[i]){xl=xg->in_h[i]-xnmb;}
+       }
+       if(praxi==2){
+        if(xnmb>=xg->in_h[i]){xl=xnmb+xg->in_h[i];}
+        if(xnmb<xg->in_h[i]){xl=xg->in_h[i]+xnmb;}
+       }
+       if(praxi==3){
+        if(xnmb>=xg->in_h[i]){xl=xnmb*xg->in_h[i];}
+        if(xnmb<xg->in_h[i]){xl=xg->in_h[i]*xnmb;}
+       }
+       if(praxi==4){
+        if(xnmb>=xg->in_h[i]){xl=xnmb/xg->in_h[i];}
+        if(xnmb<xg->in_h[i]){xl=xg->in_h[i]/xnmb;}
+       }
        if(xl!=0){
        lxl.clear();
        lxl+=to_string(xl);
@@ -81,5 +89,56 @@ int main(int argc,char** argv)
        cout<<i << " " <<std::setprecision(preci) << xg->in_h[i] <<" ";
        cout<<" ---> da rst is " <<std::setprecision(preci) << xl <<" " <<std::setprecision(preci)<< lxi <<"\n";
     }
+}
+
+int main(int argc,char** argv)
+{
+    cout<<"enter a number \n";
+    cout<<"enter more than the lenght of number for more 90[X] a number eg 2,3,4 or 0 \n";
+    cout<<"enter precision \n";
+    cout<<"for the model enter the first digit \n";
+    cout<<"for the model enter the second digit \n";
+    cout<<"for the second model enter the stable is the first always \n";
+    xnmb=stoll(argv[1]);
+    sti+=to_string(xnmb);
+    prm=stoi(argv[2]);
+    preci=stoi(argv[3]);
+    x_one=stoi(argv[4]);
+    xg->ar[0]=x_one;
+    y_one=stoi(argv[5]);
+    xg->ar[1]=y_one;
+    xg->size_with(sti);
+    lxi=xg->summer(sti);
+    cout<<"@ numbers is " <<std::setprecision(preci)<< xnmb <<" with cd of " << lxi <<"\n";
+    xg->create_nines_from(prm);
+    cout<<"\n";
+    cout<<xg->ar[0] << " " << xg->ar[1] << "model \n";
+    cout<<"-\n";
+    main_model(1);
+    cout<<"\n";
+    cout<<"+\n";
+    main_model(2);
+    cout<<"\n";
+    cout<<"*\n";
+    main_model(3);
+    cout<<"\n";
+    cout<<"/\n";
+    main_model(4);
+    cout<<"\n";
+    cout<<xg->ar[0] << " " << xg->ar[0] << "model \n";
+    xg->all_nines_from(prm);
+    cout<<"\n";
+    cout<<"-\n";
+    secondary_model(1);
+    cout<<"\n";
+    cout<<"+\n";
+    secondary_model(2);
+    cout<<"\n";
+    cout<<"*\n";
+    secondary_model(3);
+    cout<<"\n";
+    cout<<"/\n";
+    secondary_model(4);
+    cout<<"\n";
     return 0;
 }
