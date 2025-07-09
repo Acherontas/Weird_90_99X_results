@@ -1,6 +1,5 @@
 #ifndef XGEN_H
 #define XGEN_H
-
 #include <string>
 using namespace std;
 class xgen
@@ -19,9 +18,8 @@ class xgen
         void all_nines_from(int prm);
         long double in_h[1000];
         int ihn=0;
+        int ar[2];
     protected:
-
     private:
 };
-
 #endif // XGEN_H
