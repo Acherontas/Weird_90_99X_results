@@ -31,13 +31,12 @@ void xgen::all_nines_from(int prm){
       int lmk=prm;
       int mlki=this->swi+lmk;
       for(int i=0;i<=mlki;i++){
-          ml_n+="9";
+          //ml_n+="9";
+          ml_n+=to_string(this->ar[0]);
           this->in_h[ihn]=stold(ml_n);
           ihn+=1;
       }
 }
-
-
 
 void xgen::create_nines_from(int param){
         //cout<<"creating \n";
@@ -47,13 +46,15 @@ void xgen::create_nines_from(int param){
         int mlk=this->swi+param;
         for(int i=0;i<=mlk;i++){
             if(stp==1){
-                      fake_string+="0";
+                      //fake_string+="0";
+                      fake_string+=to_string(this->ar[1]);
                       stp=0;
                       xli=1;
                       //goto A;
                       }
              if(stp==0 && xli==0){
-                       fake_string+="9";
+                       //fake_string+="9";
+                       fake_string+=to_string(this->ar[0]);
                        stp=1;
                        xli=0;
                        }
